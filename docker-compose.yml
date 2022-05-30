@@ -1,0 +1,14 @@
+version: "3"
+
+services:
+  ai_cartasur:
+    build:
+      context: ./ai_cartasur_api/
+      dockerfile: Dockerfile
+
+  ai_cartasur_db:
+    image: postgres:14.3-bullseye
+    env_file:
+      - .env
+    volumes:
+      - ./ai_cartasur_db:/var/lib/postgresql/data
