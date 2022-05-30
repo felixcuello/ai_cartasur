@@ -4,6 +4,9 @@ build:
 	@mkdir -p ai_cartasur_db
 	@docker compose build
 
+shell:
+	docker compose run ai_cartasur bash
+
 up:
 	docker compose up
 
@@ -12,6 +15,9 @@ psql:
 
 clean:
 	@echo "To drop the database use 'make drop'"
+
+down:
+	docker compose down
 
 db_create:
 	docker compose exec -T ai_cartasur_db psql -U admin ai_cartasur_db < ./sql/create_clientes.sql
