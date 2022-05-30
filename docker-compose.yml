@@ -5,6 +5,10 @@ services:
     build:
       context: ./ai_cartasur_api/
       dockerfile: Dockerfile
+    env_file:
+      - .env
+    volumes:
+      - ./ai_cartasur_api:/app
 
   ai_cartasur_db:
     image: postgres:14.3-bullseye
