@@ -15,7 +15,7 @@ CREATE TABLE creditos (
   par_key VARCHAR,
   id_cliente INTEGER,
   policyexecutionid VARCHAR,
-  siisa_subsectorLaboral INTEGER,
+  siisa_subsectorLaboral VARCHAR,
   siisa_montoMorasBCRA INTEGER,
   siisa_cantMorasBCRA INTEGER,
   siisa_relDepMeses INTEGER,

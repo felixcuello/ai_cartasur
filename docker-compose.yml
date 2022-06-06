@@ -9,6 +9,11 @@ services:
       - .env
     volumes:
       - ./ai_cartasur_api:/app
+      - ./data/:/data
+    depends_on:
+      - ai_cartasur_db
+    networks:
+      - cartasur
 
   ai_cartasur_db:
     image: postgres:14.3-bullseye
@@ -16,3 +21,8 @@ services:
       - .env
     volumes:
       - ./ai_cartasur_db:/var/lib/postgresql/data
+    networks:
+      - cartasur
+
+networks:
+  cartasur:
