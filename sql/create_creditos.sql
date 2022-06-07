@@ -38,3 +38,5 @@ CREATE TABLE creditos (
   siisa_consultasMes INTEGER,
   CONSTRAINT fk_id_cliente FOREIGN KEY(id_cliente) REFERENCES clientes(id_cliente)
 );
+
+CREATE INDEX id_credito_idx ON public.creditos USING btree (id_credito);

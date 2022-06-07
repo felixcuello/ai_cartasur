@@ -19,3 +19,5 @@ CREATE TABLE clientes (
   juicios_cancelados VARCHAR,
   apto_venta_en_caja VARCHAR
 );
+
+CREATE INDEX id_cliente_idx ON public.clientes USING btree (id_cliente);
