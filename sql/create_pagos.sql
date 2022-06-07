@@ -1,9 +1,11 @@
 -- Tabla de pagos según CSV
 CREATE TABLE pagos (
   id_credito INTEGER,
+  id_cuota_credito INTEGER,
   nro_cuota INTEGER NOT NULL,
   fpago TIMESTAMP NOT NULL,
   capital FLOAT,
   interes FLOAT,
-  CONSTRAINT fk_id_credito FOREIGN KEY(id_credito) REFERENCES creditos(id_credito)
+  CONSTRAINT fk_unique_cuotas FOREIGN KEY(id_credito, id_cuota_credito) REFERENCES cuotas(id_credito, id_cuota_credito)
 );
+

@@ -36,3 +36,6 @@ dbshell:
 
 drop_database:
 	rm -rf ai_cartasur_db
+
+macos_docker_up:
+	open -a Docker
