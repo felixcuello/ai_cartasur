@@ -2,6 +2,7 @@ version: "3"
 
 services:
   ai_cartasur:
+    platform: linux/amd64
     build:
       context: ./ai_cartasur_api/
       dockerfile: Dockerfile
