@@ -49,7 +49,7 @@ def string_or_null(string):
 #  6 ingreso_neto INTEGER,
 #  7 fecha_alta_laboral TIMESTAMP WITHOUT TIME ZONE,
 #  8 sucursal VARCHAR,
-#  9 provincia_pero VARCHAR,
+#  9 provincia_per VARCHAR,
 # 10 cod_postal_per VARCHAR,
 # 11 tipolaboral VARCHAR,
 # 12 metal VARCHAR,
@@ -58,6 +58,7 @@ def string_or_null(string):
 # 15 peor_atraso_hist FLOAT,
 # 16 juicios_cancelados VARCHAR,
 # 17 apto_venta_en_caja VARCHAR
+# 18 score INTEGER
 
 for row in csvreader:
     ingreso_neto = string_to_int(row[6])
@@ -65,6 +66,7 @@ for row in csvreader:
     refines = string_to_int(row[14])
     peor_atraso_hist = string_to_float(row[15])
     fecha_alta_laboral = string_or_null(row[7])
+    score = string_to_int(row[18])
 
     # La interpolacion la hacemos porque conozco que el CSV viene de buena fuente
     sql = """
@@ -72,9 +74,9 @@ for row in csvreader:
     (
       id_cliente, tdoc, nrodoc, sexo,
       falta, fnac, ingreso_neto, fecha_alta_laboral,
-      sucursal, provincia_pero, cod_postal_per,
+      sucursal, provincia_per, cod_postal_per,
       tipolaboral, metal, operaciones, refines,
-      peor_atraso_hist, juicios_cancelados, apto_venta_en_caja
+      peor_atraso_hist, juicios_cancelados, apto_venta_en_caja, score
     )
     VALUES
     (
@@ -82,13 +84,13 @@ for row in csvreader:
     '%s', '%s', %s, %s,
     '%s', '%s', '%s',
     '%s', '%s', %s, %s,
-    %s, '%s', '%s'
+    %s, '%s', '%s', %s
     )
     """ % (row[0], row[3],
            row[4], row[5], ingreso_neto, fecha_alta_laboral,
            row[8], row[9], row[10],
            row[11], row[12], operaciones, peor_atraso_hist,
-           peor_atraso_hist, row[16], row[17])
+           peor_atraso_hist, row[16], row[17], score)
 
     cursor.execute(sql)
 

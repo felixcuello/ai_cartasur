@@ -7,6 +7,9 @@ build:
 shell: up_dettached
 	docker compose exec ai_cartasur bash
 
+testshell: up_dettached
+	docker compose run ai_cartasur bash
+
 up:
 	docker compose up
 
