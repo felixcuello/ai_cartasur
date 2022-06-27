@@ -9,7 +9,7 @@ CREATE TABLE clientes (
   ingreso_neto INTEGER,
   fecha_alta_laboral TIMESTAMP WITHOUT TIME ZONE,
   sucursal VARCHAR,
-  provincia_pero VARCHAR,
+  provincia_per VARCHAR,
   cod_postal_per VARCHAR,
   tipolaboral VARCHAR,
   metal VARCHAR,
@@ -17,7 +17,8 @@ CREATE TABLE clientes (
   refines INTEGER,
   peor_atraso_hist FLOAT,
   juicios_cancelados VARCHAR,
-  apto_venta_en_caja VARCHAR
+  apto_venta_en_caja VARCHAR,
+  score INTEGER
 );
 
 CREATE INDEX id_cliente_idx ON public.clientes USING btree (id_cliente);
