@@ -1,3 +1,4 @@
 .env
 data/*
 ai_cartasur_db/*
+ai_cartasur_api/scripts/__pycache__
