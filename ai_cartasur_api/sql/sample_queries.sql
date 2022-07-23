@@ -11,8 +11,8 @@ SELECT
   cl.juicios_cancelados,
   cl.apto_venta_en_caja,
   count(*)
-FROM creditos cr
-INNER JOIN clientes cl ON cr.id_cliente = cl.id_cliente
+FROM clientes cl
+INNER JOIN creditos cr ON cl.id_cliente = cl.id_cliente
 GROUP BY
   cl.fnac,
   cl.sexo,
