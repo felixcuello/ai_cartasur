@@ -22,7 +22,7 @@ conn = psycopg2.connect("host={} dbname={} user={} password={}".
 sql = """
 SELECT
   ------------------------------------
-  -- clientes
+  --- clientes
   ------------------------------------
   COALESCE(cl.sexo, 'D') AS sexo,
   COALESCE(CAST(ROUND(date_part('year', AGE(cl.fnac))::numeric, -1) AS integer), 0) AS edad,
@@ -34,7 +34,7 @@ SELECT
   COALESCE(CAST(ROUND(cl.refines::numeric, -1) AS integer), 0) AS refines,
   COALESCE(CAST(ROUND(cl.peor_atraso_hist::numeric, -1) AS integer), 0) AS peor_atraso_hist,
   ------------------------------------
-  -- creditos
+  --- creditos
   ------------------------------------
   COALESCE(CAST(ROUND(cr.monto::numeric, -4) AS integer), 0) AS monto,
   recibo,
