@@ -18,7 +18,7 @@ SELECT
   COALESCE(cu.total_cuotas, 0) AS total_cuotas
 --  ,cr.id_credito
 FROM creditos cr
-INNER JOIN clientes cl ON cl.id_cliente = cl.id_cliente
+INNER JOIN clientes cl ON cr.id_cliente = cl.id_cliente
 LEFT JOIN (
   SELECT    id_credito,
             COUNT(*) AS total_cuotas
@@ -40,5 +40,5 @@ GROUP BY
   cu.total_cuotas
 --  ,cr.id_credito
 -- HAVING total_cuotas > 5
--- LIMIT 10
+LIMIT 10
 ;
