@@ -12,7 +12,7 @@ SELECT
   cl.apto_venta_en_caja,
   count(*)
 FROM clientes cl
-INNER JOIN creditos cr ON cl.id_cliente = cl.id_cliente
+INNER JOIN creditos cr ON cr.id_cliente = cl.id_cliente
 GROUP BY
   cl.fnac,
   cl.sexo,
@@ -24,4 +24,5 @@ GROUP BY
   cl.refines,
   cl.peor_atraso_hist,
   cl.juicios_cancelados,
-  cl.apto_venta_en_caja;
+  cl.apto_venta_en_caja
+  ;
